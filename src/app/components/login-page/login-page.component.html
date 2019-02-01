@@ -1,0 +1,8 @@
+<form [formGroup]="loginForm" class="form-group col-md-6">
+  <label for="login">Login:</label>
+  <input formControlName="login" id="login" class="form-control" placeholder="Enter your first name"/>
+  <p class="error-txt">{{ loginForm.value.login ? 'Only english or russian letters. length 2-25 characters' : 'Field is
+    required!'}}</p>
+  <button type="button" (click)="checkForm()" class="btn btn-info">Login</button>
+</form>
+

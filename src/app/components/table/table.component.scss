@@ -1,0 +1,16 @@
+@import "../../../variables.scss";
+
+thead {
+  font-weight: 500;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background: $lightColor;
+}
+
+
+

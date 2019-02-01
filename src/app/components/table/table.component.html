@@ -1,0 +1,33 @@
+<div class="container">
+  <p *ngIf="arrayOfArticles.length === 0 && isResponse">No articles</p>
+  <div class="row" *ngIf="arrayOfArticles.length !== 0">
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+    <div class="input-wrapper">
+      <label>Per page
+        <input type="number" class="input" min="0" [(ngModel)]="config.itemsPerPage" (change)="onItemsCountChange()">
+      </label>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-template ngFor let-item [ngForOf]="arrayOfArticles | paginate: {
+     currentPage: config.currentPage,
+     itemsPerPage: config.itemsPerPage,
+      totalItems: totalCountOfItems
+     }">
+        <tr app-table-item
+            [item]="item"
+            [routerLink]="['../article', item.id]"
+            routerLinkActive="active"
+        ></tr>
+      </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+@import "../../../variables.scss";
+
+.form-group {
+  padding: $defaultPadding;
+
+  input.ng-touched.ng-dirty.ng-invalid {
+    border: solid 2px darkred;
+  }
+
+  input.ng-touched.ng-valid {
+    border: solid green 2px;
+  }
+
+  .error-txt {
+    font-size: 12px;
+    color: darkred;
+    display: none;
+  }
+
+  input.ng-touched.ng-dirty.ng-invalid ~ .error-txt {
+    display: block;
+  }
+
+  button {
+    margin-top: $defaultMargin;
+    display: inline-block;
+    text-align: right;
+  }
+}
+
+

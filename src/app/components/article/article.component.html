@@ -1,0 +1,13 @@
+<div class="article-wrapper" *ngIf="article$ | async as article">
+  <span class="txt-1">{{ article.title }}</span>
+  <p>{{ article.content }}</p>
+</div>
+<div class="comments-wrapper">
+  <p class="title" *ngIf="comments$">Comments:</p>
+  <div class="comment-wrapper" *ngFor="let comment of comments$ | async">
+    <span class="txt-1">{{ comment.id}}</span>
+    <span>{{ comment.title }}</span>
+    <span class="comment-txt">{{ comment.content }}</span>
+  </div>
+</div>
+
